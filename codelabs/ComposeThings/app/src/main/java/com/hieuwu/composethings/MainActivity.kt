@@ -3,10 +3,8 @@ package com.hieuwu.composethings
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -48,12 +46,19 @@ fun MyApp(
 @Composable
 fun Greeting(name: String) {
     Surface(
-        modifier = Modifier.padding(8.dp).fillMaxWidth(),
+        modifier = Modifier
+            .padding(8.dp)
+            .fillMaxWidth(),
         color = MaterialTheme.colorScheme.primary
     ) {
-        Column {
-            Text(text = "Hello, \n")
-            Text(text = "$name!")
+        Row(modifier = Modifier.padding(24.dp)) {
+            Column(modifier = Modifier.weight(1f)) {
+                Text(text = "Hello, \n")
+                Text(text = "$name!")
+            }
+            ElevatedButton(onClick = { /*TODO*/ }) {
+                Text("Show more")
+            }
         }
     }
 }
